@@ -1,0 +1,168 @@
+import { Pet } from "@/types/pet";
+
+export const PETS: Pet[] = [
+  {
+    id: "PT-1042",
+    name: "Mochi",
+    species: "Dog",
+    breed: "Golden Retriever Mix",
+    ageYears: 3,
+    size: "L",
+    status: "Available",
+    imageUrl: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80",
+    matchScore: 94,
+    aiBio: "A sunbeam with a tail — Mochi greets every morning like it is a festival.",
+    story:
+      "Mochi came to us after his previous family relocated abroad. He spent his first week hiding under the blankets, but the moment he heard kibble rattling in a bowl, he became the golden retriever you always dreamed of. He loves long walks, will fetch until your arm gives out, and has perfected the art of the head-tilt.",
+    behavior: {
+      friendlinessWithKids: 5,
+      friendlinessWithPets: 4,
+      energyLevel: "High",
+      trainability: 5,
+      independence: 2,
+    },
+    medical: {
+      vaccinated: true,
+      neutered: true,
+      microchipped: true,
+      conditions: [],
+      lastCheckup: "2026-07-10",
+    },
+    shelter: {
+      id: "SH-01",
+      name: "Paws & Claws Shelter",
+      city: "Chattogram",
+      address: "12 Agrabad Commercial Area, Chattogram 4100",
+      phone: "+880 31-710 0000",
+      email: "hello@pawsclaws.bd",
+      verified: true,
+    },
+    tags: ["Good with kids", "House trained", "Loves fetch"],
+    listedAt: "2026-07-01",
+  },
+  {
+    id: "PT-1078",
+    name: "Juniper",
+    species: "Cat",
+    breed: "Domestic Shorthair",
+    ageYears: 2,
+    size: "S",
+    status: "Available",
+    imageUrl: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80",
+    matchScore: 89,
+    aiBio: "Quietly opinionated, endlessly curious, and a devoted supervisor of laptop work.",
+    story:
+      "Juniper was found in a cardboard box outside a pharmacy in GEC Circle. She has since decided that boxes are beneath her, preferring window ledges and the tops of bookshelves. She will judge you silently, and then sit in your lap.",
+    behavior: {
+      friendlinessWithKids: 3,
+      friendlinessWithPets: 2,
+      energyLevel: "Low",
+      trainability: 3,
+      independence: 5,
+    },
+    medical: {
+      vaccinated: true,
+      neutered: true,
+      microchipped: true,
+      conditions: [],
+      lastCheckup: "2026-06-20",
+    },
+    shelter: {
+      id: "SH-01",
+      name: "Paws & Claws Shelter",
+      city: "Chattogram",
+      address: "12 Agrabad Commercial Area, Chattogram 4100",
+      phone: "+880 31-710 0000",
+      email: "hello@pawsclaws.bd",
+      verified: true,
+    },
+    tags: ["Independent", "Apartment-friendly", "Quiet"],
+    listedAt: "2026-07-15",
+  },
+  {
+    id: "PT-1091",
+    name: "Clover",
+    species: "Rabbit",
+    breed: "Holland Lop",
+    ageYears: 1,
+    size: "XS",
+    status: "In Review",
+    imageUrl: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=600&q=80",
+    matchScore: 82,
+    aiBio: "A small brown comma of a rabbit who binkies across the room when dinner arrives.",
+    story:
+      "Clover arrived at the shelter after her owner's building went no-pet policy. She is bold for her size — she thumps at dogs three times her weight and demands fresh greens every morning without fail.",
+    behavior: {
+      friendlinessWithKids: 4,
+      friendlinessWithPets: 2,
+      energyLevel: "Medium",
+      trainability: 3,
+      independence: 4,
+    },
+    medical: {
+      vaccinated: true,
+      neutered: false,
+      microchipped: false,
+      conditions: [],
+      lastCheckup: "2026-08-01",
+    },
+    shelter: {
+      id: "SH-02",
+      name: "Dhaka Small Animal Rescue",
+      city: "Dhaka",
+      address: "45 Dhanmondi Lake Road, Dhaka 1209",
+      phone: "+880 2-910 0000",
+      email: "rescue@dsarescue.bd",
+      verified: true,
+    },
+    tags: ["First-time owner friendly", "Low maintenance", "Quiet"],
+    listedAt: "2026-08-05",
+  },
+  {
+    id: "PT-1103",
+    name: "Pistachio",
+    species: "Bird",
+    breed: "Budgerigar",
+    ageYears: 1,
+    size: "XS",
+    status: "Available",
+    imageUrl: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=600&q=80",
+    matchScore: 76,
+    aiBio: "A pocket-sized commentator who whistles the first three notes of every song he hears.",
+    story:
+      "Pistachio was surrendered by a family that underestimated how talkative a budgie could be. He has since embraced shelter life and now provides a running commentary on feeding time, cleaning schedules, and the behaviour of passing cats.",
+    behavior: {
+      friendlinessWithKids: 4,
+      friendlinessWithPets: 3,
+      energyLevel: "High",
+      trainability: 4,
+      independence: 4,
+    },
+    medical: {
+      vaccinated: false,
+      neutered: false,
+      microchipped: false,
+      conditions: [],
+      lastCheckup: "2026-07-28",
+    },
+    shelter: {
+      id: "SH-02",
+      name: "Dhaka Small Animal Rescue",
+      city: "Dhaka",
+      address: "45 Dhanmondi Lake Road, Dhaka 1209",
+      phone: "+880 2-910 0000",
+      email: "rescue@dsarescue.bd",
+      verified: true,
+    },
+    tags: ["Apartment-friendly", "Social", "Vocal"],
+    listedAt: "2026-08-10",
+  },
+];
+
+export function getPetById(id: string): Pet | undefined {
+  return PETS.find((p) => p.id === id);
+}
+
+export function getFeaturedPets(): Pet[] {
+  return PETS.filter((p) => p.status === "Available").slice(0, 4);
+}
